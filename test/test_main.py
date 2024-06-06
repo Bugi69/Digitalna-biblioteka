@@ -22,8 +22,8 @@ class Test_Main(unittest.TestCase):
             if line != "proba":
                file.write(line)
 
-         
-            
+
+
 
 if __name__ == '__main__':
    unittest.main()   

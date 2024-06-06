@@ -2,7 +2,7 @@ from library import Library
 from book import Book
 libary = Library()
 
-unos = input("Zdravo! Izaberite akciju koju zelite da izvrsite (1-Dodavanje knjige, 2-Brisanje knjige, 3-Menjanje informacija o knjigama, 4-Prikaz svih knjiga): ")
+unos = input("Zdravo! Izaberite akciju koju zelite da izvrsite (1-Dodavanje knjige, 2-Brisanje knjige, 3-Menjanje informacija o knjigama, 4-Pretraga knjiga): ")
 if unos =="1":
     while True:
         print("Napisite informacije o knjizi.")
@@ -32,9 +32,9 @@ elif unos == "2":
         for line in lines:
             if line.strip() != book.display_info().strip():
                 file.write(line)
-                
+
 elif unos == "3":
-    print("Napisi informacije o knjizi koju zelite da izmenite.")
+    print("Napisite informacije o knjizi koju zelite da izmenite.")
     naziv = input("Naziv: ")
     autor = input("Autor: ")
     god_izdanja = input("Godina izdanja: ")
@@ -54,3 +54,11 @@ elif unos == "3":
     lines = [book1.display_info() + '\n' if book.display_info() in line else line for line in lines]
     with open("fajl.txt", "w") as file:
         file.writelines(lines)
+
+elif unos == "4":
+    kriterjum = input("Po cemu zelite da pretrazujete knjige (Naziv, Autor, Godina izdanja, Zanr ): ")
+    key_word = input("Kljucna rec za pretragu: ")
+    results = libary.search_books(kriterjum, key_word)
+    print("Rezultati pretrage: ")
+    for result in results:
+        print(result)
