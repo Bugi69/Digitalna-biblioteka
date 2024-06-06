@@ -19,4 +19,16 @@ if unos =="1":
     with open("fajl.txt", "a") as file:
         for object in libary.lista_objekata:
             file.write(object.display_info() + "\n")
-
+elif unos == "2":
+    print("Napisite informacije o knjizi koju zelite da izbrisete.")
+    naziv = input("Naziv: ")
+    autor = input("Autor: ")
+    god_izdanja = input("Godina izdanja: ")
+    zanr = input("Zanr: ")
+    book = Book(naziv, autor, god_izdanja, zanr)
+    with open("fajl.txt", "r") as file:
+        lines = file.readlines()
+    with open("fajl.txt", "w") as file:
+        for line in lines:
+            if line.strip() != book.display_info().strip():
+                file.write(line)

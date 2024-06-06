@@ -7,3 +7,4 @@ class Book:
         
     def display_info(self):
         return f'{self.naziv}, {self.autor}, {self.god_izdanja}, {self.zanr}'
+#klasa book sa atributima
